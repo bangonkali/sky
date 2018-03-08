@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Sky.Libs
 			_template = t;
 		}
 
-		private bool SimilarProcess(TemplateItem item, Process p, List<IntPtr> collected)
+		private bool IsProcess(TemplateItem item, Process p, List<IntPtr> collected)
 		{
 			var q = true;
 			q &= p.MainWindowHandle != IntPtr.Zero;
@@ -50,6 +51,27 @@ namespace Sky.Libs
 			return true;
 		}
 
+		private Rectangle GetBoundsFromScreen(Screen screen, TemplateItem item)
+		{
+			var width = Screen.PrimaryScreen.Bounds.Width;
+			var height = Screen.PrimaryScreen.Bounds.Height;
+			var top = Screen.PrimaryScreen.Bounds.Top;
+			var left = Screen.PrimaryScreen.Bounds.Left;
+
+			var itemRealHeight = (int)Math.Ceiling(height * (item.Height / item.HeightGrid));
+			var itemRealWidth = (int)Math.Ceiling((width * (item.Width / item.WidthGrid)));
+			var itemRealTop = (int)Math.Floor(top + (height * (item.Top / item.HeightGrid)));
+			var itemRealLeft = (int)Math.Floor(left + (width * (item.Left / item.WidthGrid)));
+
+			return new Rectangle(itemRealLeft, itemRealTop, itemRealWidth, itemRealHeight);
+		}
+
+		private Screen GetDisplay(string d)
+		{
+			var display = Screen.AllScreens.Where(x => x.DeviceName == d).FirstOrDefault();
+			return display == null ? Screen.PrimaryScreen : display;
+		}
+
 		public void Run()
 		{
 			var collected = new List<IntPtr>();
@@ -58,18 +80,11 @@ namespace Sky.Libs
 			{
 				if (string.IsNullOrEmpty(item.DesktopGroup))
 				{
-					var width = Screen.PrimaryScreen.Bounds.Width;
-					var height = Screen.PrimaryScreen.Bounds.Height;
-					var top = Screen.PrimaryScreen.Bounds.Top;
-					var left = Screen.PrimaryScreen.Bounds.Left;
-
-					var itemRealHeight = (int)Math.Ceiling(height * (item.Height / item.HeightGrid));
-					var itemRealWidth = (int)Math.Ceiling((width * (item.Width / item.WidthGrid)));
-					var itemRealTop = (int)Math.Floor(top + (height * (item.Top / item.HeightGrid)));
-					var itemRealLeft = (int)Math.Floor(left + (width * (item.Left / item.WidthGrid)));
+					var screen = GetDisplay(item.Display);
+					var bounds = GetBoundsFromScreen(screen, item);
 
 					var proc = Process.GetProcesses()
-						.Where(p => SimilarProcess(item, p, collected))
+						.Where(p => IsProcess(item, p, collected))
 						.FirstOrDefault();
 
 					var g = Process.GetProcesses();
@@ -85,8 +100,8 @@ namespace Sky.Libs
 
 					if (hwnd != IntPtr.Zero && hwnd != IntPtr.Zero)
 					{
-						Debug.WriteLine($"${proc.ProcessName} {proc.Id} {hwnd}, {itemRealLeft}, {itemRealTop}, {itemRealWidth}, {itemRealHeight}");
-						Desktop.MoveWindow(hwnd, itemRealLeft, itemRealTop, itemRealWidth, itemRealHeight, true);
+						Debug.WriteLine($"${proc.ProcessName} {proc.Id} {hwnd}, {bounds.X}, {bounds.Top}, {bounds.Width}, {bounds.Height}");
+						Desktop.MoveWindow(hwnd, bounds.X, bounds.Top, bounds.Width, bounds.Height, true);
 						collected.Add(hwnd);
 						Thread.Sleep(200);
 					}

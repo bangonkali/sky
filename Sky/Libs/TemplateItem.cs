@@ -44,6 +44,8 @@ namespace Sky.Libs
 		public string DesktopGroup { get; set; }
 
 		public NameType NameType { get; set; }
+
+		public string Display { get; set; }
 	}
 
 	[Serializable]

@@ -9,6 +9,8 @@ The best Windows window manager.
 1. Modify your configuration using your favorite text editor.
 1. Run `sky`.
 
+!(Notepads on the screen)[https://raw.githubusercontent.com/bangonkali/sky/master/docs/images/notepad_arranged.PNG]
+
 ### List Screens
 ```
 ➜  Debug git:(master) ✗ ./Sky --screens

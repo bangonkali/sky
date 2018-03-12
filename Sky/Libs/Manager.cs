@@ -58,10 +58,10 @@ namespace Sky.Libs
 			var top = Screen.PrimaryScreen.Bounds.Top;
 			var left = Screen.PrimaryScreen.Bounds.Left;
 
-			var itemRealHeight = (int)Math.Ceiling(height * (item.Height / item.HeightGrid));
-			var itemRealWidth = (int)Math.Ceiling((width * (item.Width / item.WidthGrid)));
-			var itemRealTop = (int)Math.Floor(top + (height * (item.Top / item.HeightGrid)));
-			var itemRealLeft = (int)Math.Floor(left + (width * (item.Left / item.WidthGrid)));
+			var itemRealHeight = (int)Math.Ceiling(height * (item.Height / item.HeightGrid) - item.Padding.Bottom);
+			var itemRealWidth = (int)Math.Ceiling((width * (item.Width / item.WidthGrid)) - item.Padding.Right);
+			var itemRealTop = (int)Math.Floor(top + (height * (item.Top / item.HeightGrid)) + item.Padding.Top);
+			var itemRealLeft = (int)Math.Floor(left + (width * (item.Left / item.WidthGrid)) + item.Padding.Left);
 
 			return new Rectangle(itemRealLeft, itemRealTop, itemRealWidth, itemRealHeight);
 		}

@@ -34,21 +34,21 @@ namespace Sky
 
 		private static Template CreateSampleConfiguration()
 		{
+			Libs.Padding defaultPadding = new Libs.Padding(-14, -14, -8, -8);
 			return new Template()
 			{
 				Items = new List<TemplateItem>() {
+					new TemplateItem(3,3,1,1,0,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,1,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,2,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
 
-					new TemplateItem(3,3,1,1,0,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,1,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,2,0,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
+					new TemplateItem(3,3,1,1,0,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,1,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,2,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
 
-					new TemplateItem(3,3,1,1,0,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,1,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,2,1,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-
-					new TemplateItem(3,3,1,1,0,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,1,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
-					new TemplateItem(3,3,1,1,2,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName },
+					new TemplateItem(3,3,1,1,0,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,1,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
+					new TemplateItem(3,3,1,1,2,2,"notepad","",NameType.ProcessName) { Display = Screen.PrimaryScreen.DeviceName, Padding = defaultPadding },
 
 				}
 			};

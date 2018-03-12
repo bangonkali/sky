@@ -27,6 +27,8 @@ namespace Sky.Libs
 			NameType = nameType;
 		}
 
+		public Padding Padding { get; set; }
+
 		public double WidthGrid { get; set; }
 
 		public double HeightGrid { get; set; }
@@ -54,5 +56,32 @@ namespace Sky.Libs
 		WindowName,
 		ProcessName,
 		ProgramPath
+	}
+
+	[Serializable]
+	public class Padding
+	{
+		public int Left { get; set; }
+		public int Right { get; set; }
+		public int Top { get; set; }
+		public int Bottom { get; set; }
+
+		public Padding()
+		{
+			Left = Right = Top = Bottom = 0;
+		}
+
+		public Padding(int padding)
+		{
+			Left = Right = Top = Bottom = padding;
+		}
+
+		public Padding(int paddingLeft, int paddingRight, int paddingTop, int paddingBottom)
+		{
+			Left = paddingLeft;
+			Right = paddingRight;
+			Top = paddingTop;
+			Bottom = paddingBottom;
+		}
 	}
 }

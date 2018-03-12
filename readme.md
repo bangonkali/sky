@@ -42,18 +42,30 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
 {
   "Items": [
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
-      "Width": 2,
+      "Width": 1.0,
       "Height": 1.0,
-      "Top": 1,
-      "Left": 0,
-      "Name": "notepad++",
+      "Top": 0.0,
+      "Left": 0.0,
+      "Name": "notepad",
       "DesktopGroup": "",
       "NameType": 1,
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -66,6 +78,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -78,6 +96,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -90,6 +114,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -102,6 +132,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -114,6 +150,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -126,6 +168,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
@@ -138,6 +186,12 @@ Create sample configuration. The sample config will arrange up to 9 notepad proc
       "Display": "\\\\.\\DISPLAY1"
     },
     {
+      "Padding": {
+        "Left": -14,
+        "Right": -14,
+        "Top": -8,
+        "Bottom": -8
+      },
       "WidthGrid": 3.0,
       "HeightGrid": 3.0,
       "Width": 1.0,
